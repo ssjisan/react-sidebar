@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "title": "Fresh Butter Cookies-Jar 900gX6PC",
+    "stock": 20,
+    "price": 280,
+    "image": "https://i.ibb.co/dcZ4Yz7/Fresh-Butter-Cookies-Jar.png"
+  },
+  {
+    "id": 2,
+    "title": "Fresh FunFill Sndwch Crm 30gX48",
+    "stock": 12,
+    "price": 20,
+    "image": "https://i.ibb.co/4jg4mhk/Fresh-Fun-Fill.png"
+  },
+  {
+    "id": 3,
+    "title": "Fresh Sweet n Salty Biscuit 48x15g",
+    "stock": 2,
+    "price": 190,
+    "image": "https://i.ibb.co/hcDb2y4/Fresh-Sweet-n-Salty-Biscuit-48x15g.png"
+  },
+  {
+    "id": 4,
+    "title": "Fresh Chocolate Chip Cookies 250gX6",
+    "stock": 12,
+    "price": 180,
+    "image": "https://i.ibb.co/XLH4sKw/Fresh-Chocolate-Chip-Cookies.png"
+  },
+  {
+    "id": 5,
+    "title": "Fresh Coconut Cookies 80gx24",
+    "stock": 23,
+    "price": 210,
+    "image": "https://i.ibb.co/YLw6ydV/Fresh-Coconut-Cookies.png"
+  },
+  {
+    "id": 6,
+    "title": "Fresh Orangy Biscuit 24x65g",
+    "stock": 0,
+    "price": 20,
+    "image": "https://i.ibb.co/6b9cw9L/fresh-orangy.png"
+  },
+  {
+    "id": 7,
+    "title": "Fresh Energy Cookies 250gx8",
+    "stock": 5,
+    "price": 15,
+    "image": "https://i.ibb.co/gyWz901/Fresh-Energy-Cookies.png"
+  },
+  {
+    "id": 8,
+    "title": "Fresh Sweet n Salty Biscuit 24x60g",
+    "stock": 0,
+    "price": 30,
+    "image": "https://i.ibb.co/hcDb2y4/Fresh-Sweet-n-Salty-Biscuit-48x15g.png"
+  },
+  {
+    "id": 9,
+    "title": "Fresh Coconut Cookies 250gx8",
+    "stock": 20,
+    "price": 20,
+    "image": "https://i.ibb.co/0Dt0GvZ/fresh-coconut.png"
+  },
+  {
+    "id": 10,
+    "title": "Fresh Energy Power 26gX48",
+    "stock": 34,
+    "price": 25,
+    "image": "https://i.ibb.co/hdnGJpL/fresh-energy-power.png"
+  },
+  {
+    "id": 11,
+    "title": "Fresh Special Toast Biscuits-6x350g",
+    "stock": 7,
+    "price": 180,
+    "image": "https://i.ibb.co/FWBP50F/fresh-toast.png"
+  },
+  {
+    "id": 12,
+    "title": "Fresh Sweet Toast Biscuits-6x350g",
+    "stock": 0,
+    "price": 210,
+    "image": "https://i.ibb.co/5jSH0Cr/fresh-suger-toast.png"
+  },
+  {
+    "id": 13,
+    "title": "Fresh Sugar Crush Biscuit 24x55g",
+    "stock": 6,
+    "price": 200,
+    "image": "https://i.ibb.co/jM1LzFx/fresh-suger-crush.png"
+  },
+  {
+    "id": 14,
+    "title": "Fresh Chocolove Biscuit 8x175g",
+    "stock": 2,
+    "price": 180,
+    "image": "https://i.ibb.co/8P730Bd/fresh-chocolove.png"
+  },
+  {
+    "id": 15,
+    "title": "Fresh Healthy Choice Salted 100gX24",
+    "stock": 34,
+    "price": 160,
+    "image": "https://i.ibb.co/DtN2Z4X/fresh-saulty-healthy.png"
+  },
+  {
+    "id": 16,
+    "title": "Fresh Fantasy Chocolate Cookies (4X20)",
+    "stock": 15,
+    "price": 150,
+    "image": "https://i.ibb.co/FJsSzdd/fresh-fantasy.png"
+  }
+]
