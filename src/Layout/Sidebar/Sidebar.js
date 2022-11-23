@@ -13,6 +13,8 @@ import ReactLogo from "../../Assets/Logo.svg";
 import "../Style/Sidebar.css";
 import Navbar from "../Navbar/Navbar";
 import { navConfig } from "../Navbar/NavConfig";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 //eslint-disable-next-line
 import { Avatar, Collapse, Typography } from "@mui/material";
 import Profile from "../../Assets/Images/profile.jpg";
@@ -32,10 +34,10 @@ function Sidebar(props) {
     borderRadius: "10px",
   };
   const { pathname } = useLocation();
-  const [open, setOpen] = useState(false);
+  const [clickedId, setClickedId] = useState();
   // eslint-disable-next-line
-  const handleClick = () => {
-    setOpen(!open);
+  const handleClick = (id) => {
+    setClickedId(id);
   };
   const drawer = (
     <div>
@@ -63,25 +65,33 @@ function Sidebar(props) {
       </Box>
       <List>
         {navConfig.map((item) => (
-          <Link to={item.link} style={linkStyle} key={item.id}>
-            <ListItem
+          <>
+            <Link
+              to={item.link}
+              style={linkStyle}
               key={item.id}
-              disablePadding
-              sx={{ ml: 1.5 }}
-              className={`${pathname === item.link ? "active" : "regular"}`}
+              onClick={() => handleClick(item.id)}
             >
-              <ListItemButton>
-                <ListItemIcon
-                  sx={{
-                    color: pathname === item.link ? "#2065d1" : "#637381",
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText primary={item.title} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
+              <ListItem
+                key={item.id}
+                disablePadding
+                sx={{ ml: 1.5 }}
+                className={`${pathname === item.link ? "active" : "regular"}`}
+              >
+                <ListItemButton>
+                  <ListItemIcon
+                    sx={{
+                      color: pathname === item.link ? "#2065d1" : "#637381",
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={item.title} />
+                  {item?.subNav && clickedId===item.id ? <KeyboardArrowDownIcon /> : item?.subNav && <KeyboardArrowRightIcon />}
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          </>
         ))}
       </List>
     </div>
@@ -138,24 +148,3 @@ function Sidebar(props) {
 }
 
 export default Sidebar;
-// {item?.subNav?.map((item) => (
-//   <Link to={item.link}>
-//     <Collapse
-//       in={open}
-//       timeout="auto"
-//       unmountOnExit
-//       sx={{ display: "flex", flexDirection: "column" }}
-//     >
-//       <ListItemButton>
-//         <ListItemIcon
-//           sx={{
-//             color: pathname === item.link ? "#2065d1" : "#637381",
-//           }}
-//         >
-//           {item.icon}
-//         </ListItemIcon>
-//         <ListItemText primary={item.title} />
-//       </ListItemButton>
-//     </Collapse>
-//   </Link>
-// ))}
