@@ -13,10 +13,10 @@ import ReactLogo from "../../Assets/Logo.svg";
 import "../Style/Sidebar.css";
 import Navbar from "../Navbar/Navbar";
 import { navConfig } from "../Navbar/NavConfig";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
+
 //eslint-disable-next-line
-import { Avatar, Collapse, Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
 import Profile from "../../Assets/Images/profile.jpg";
 const drawerWidth = 280;
 
@@ -33,12 +33,25 @@ function Sidebar(props) {
     fontWeight: 700,
     borderRadius: "10px",
   };
-  const { pathname } = useLocation();
-  const [clickedId, setClickedId] = useState();
-  // eslint-disable-next-line
-  const handleClick = (id) => {
-    setClickedId(id);
+  const DropdownLink = {
+    height: "48px",
+    paddingLeft: "3rem",
+    display: "flex",
+    alignItems: "center",
+    textDecoration: "none",
+    color: "#637381",
+    fontSize: "16px",
   };
+  const SidebarLabel = {
+    marginLeft: "16px",
+  };
+
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+  const handleClick = (id) => {
+    setOpen(!open);
+  };
+  
   const drawer = (
     <div>
       <Box sx={{ px: 2.5, py: 3, display: "inline-flex" }}>
@@ -70,7 +83,7 @@ function Sidebar(props) {
               to={item.link}
               style={linkStyle}
               key={item.id}
-              onClick={() => handleClick(item.id)}
+              onClick={item.subNav && (() => handleClick(item.id))}
             >
               <ListItem
                 key={item.id}
@@ -87,10 +100,18 @@ function Sidebar(props) {
                     {item.icon}
                   </ListItemIcon>
                   <ListItemText primary={item.title} />
-                  {item?.subNav && clickedId===item.id ? <KeyboardArrowDownIcon /> : item?.subNav && <KeyboardArrowRightIcon />}
                 </ListItemButton>
               </ListItem>
             </Link>
+            {open &&
+              item?.subNav?.map((item, index) => {
+                return (
+                  <Link to={item.link} key={index} style={DropdownLink}>
+                    <FiberManualRecordOutlinedIcon sx={{ fontSize: "small" }} />
+                    <Typography style={SidebarLabel}>{item.title}</Typography>
+                  </Link>
+                );
+              })}
           </>
         ))}
       </List>

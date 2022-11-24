@@ -18,7 +18,7 @@ export default function AllProducts() {
       >
         <Toolbar />
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Zone
+        AllProducts
         </Typography>
       </Box>
     </Box>

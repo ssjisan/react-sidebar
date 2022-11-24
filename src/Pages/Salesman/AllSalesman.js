@@ -18,7 +18,7 @@ export default function AllSalesman() {
       >
         <Toolbar />
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Zone
+        AllSalesman
         </Typography>
       </Box>
     </Box>
