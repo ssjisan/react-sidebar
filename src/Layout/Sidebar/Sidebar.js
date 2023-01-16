@@ -120,10 +120,29 @@ function Sidebar(props) {
             </Link>
             {item.subNav
               ? item.subNav.map((subItem) => (
-                  <Collapse in={open[index]} sx={{display:open[index]?"block":"none"}}>
+                  <Collapse
+                    in={open[index]}
+                    sx={{ display: open[index] ? "block" : "none" }}
+                    timeout="auto"
+                    unmountOnExit
+                  >
                     <Link to={subItem.link} key={index} style={DropdownLink}>
-                      <ListItemIcon sx={{minWidth:"32px",color: pathname === subItem.link ? "#2065d1" : "#637381"}}>{subItem.icon}</ListItemIcon>
-                      <Typography style={SidebarLabel} sx={{color: pathname === subItem.link ? "#2065d1" : "#637381",}}>
+                      <ListItemIcon
+                        sx={{
+                          minWidth: "32px",
+                          color:
+                            pathname === subItem.link ? "#2065d1" : "#637381",
+                        }}
+                      >
+                        {subItem.icon}
+                      </ListItemIcon>
+                      <Typography
+                        style={SidebarLabel}
+                        sx={{
+                          color:
+                            pathname === subItem.link ? "#2065d1" : "#637381",
+                        }}
+                      >
                         {subItem.title}
                       </Typography>
                     </Link>
