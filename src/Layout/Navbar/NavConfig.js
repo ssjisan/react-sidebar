@@ -19,12 +19,12 @@ const navConfig = [
       {
         title: "Add Product",
         link: "/product/addProduct",
-        icon: <FiberManualRecordIcon />,
+        icon: <FiberManualRecordIcon sx={{fontSize:"small"}}/>,
       },
       {
         title: "All Product",
         link: "/product/allProduct",
-        icon: <FiberManualRecordIcon />,
+        icon: <FiberManualRecordIcon sx={{fontSize:"small"}}/>,
       },
     ],
   },
@@ -43,12 +43,12 @@ const navConfig = [
       {
         title: "Add Salesman",
         link: "/salesman/addSalesman",
-        icon: <FiberManualRecordIcon />,
+        icon: <FiberManualRecordIcon sx={{fontSize:"small"}}/>,
       },
       {
         title: "All Salesman",
         link: "/salesman/allSalesman",
-        icon: <FiberManualRecordIcon />,
+        icon: <FiberManualRecordIcon sx={{fontSize:"small"}}/>,
       },
     ],
   },

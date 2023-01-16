@@ -1,5 +1,6 @@
 import { Box, Toolbar, Typography } from "@mui/material";
 import React from "react";
+import Phone from "../../Components/Phone";
 import Sidebar from "../../Layout/Sidebar/Sidebar";
 
 export default function Dashboard() {
@@ -20,6 +21,7 @@ export default function Dashboard() {
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back
         </Typography>
+        <Phone />
       </Box>
     </Box>
   );

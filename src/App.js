@@ -1,4 +1,3 @@
-import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import MainRoute from "./Components/MainRoute";
 

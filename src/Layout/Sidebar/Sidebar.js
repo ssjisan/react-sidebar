@@ -13,11 +13,11 @@ import ReactLogo from "../../Assets/Logo.svg";
 import "../Style/Sidebar.css";
 import Navbar from "../Navbar/Navbar";
 import { navConfig } from "../Navbar/NavConfig";
-import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 
 //eslint-disable-next-line
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Collapse, Typography } from "@mui/material";
 import Profile from "../../Assets/Images/profile.jpg";
+import { useEffect } from "react";
 const drawerWidth = 280;
 
 function Sidebar(props) {
@@ -43,15 +43,34 @@ function Sidebar(props) {
     fontSize: "16px",
   };
   const SidebarLabel = {
-    marginLeft: "16px",
+    // marginLeft: "16px",
+  };
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState([]);
+  useEffect(() => {
+    const index = navConfig.findIndex((item) => {
+      if (!item.subNav) {
+        return item.link === pathname;
+      } else {
+        return item.subNav.find((subitem) => subitem.link === pathname);
+      }
+    });
+    if (index !== -1) {
+      setOpen((newOpen) => {
+        newOpen[index] = true;
+        return [...newOpen];
+      });
+    }
+  }, [pathname]);
+
+  const handleClick = (index) => {
+    setOpen((prev) => {
+      const newOpen = [...prev];
+      newOpen[index] = !newOpen[index];
+      return newOpen;
+    });
   };
 
-  const { pathname } = useLocation();
-  const [open, setOpen] = useState(false);
-  const handleClick = (id) => {
-    setOpen(!open);
-  };
-  
   const drawer = (
     <div>
       <Box sx={{ px: 2.5, py: 3, display: "inline-flex" }}>
@@ -77,19 +96,15 @@ function Sidebar(props) {
         </Box>
       </Box>
       <List>
-        {navConfig.map((item) => (
+        {navConfig.map((item, index) => (
           <>
-            <Link
-              to={item.link}
-              style={linkStyle}
-              key={item.id}
-              onClick={item.subNav && (() => handleClick(item.id))}
-            >
+            <Link to={item.link} style={linkStyle} key={item.id}>
               <ListItem
                 key={item.id}
                 disablePadding
                 sx={{ ml: 1.5 }}
                 className={`${pathname === item.link ? "active" : "regular"}`}
+                onClick={() => handleClick(index)}
               >
                 <ListItemButton>
                   <ListItemIcon
@@ -103,15 +118,18 @@ function Sidebar(props) {
                 </ListItemButton>
               </ListItem>
             </Link>
-            {open &&
-              item?.subNav?.map((item, index) => {
-                return (
-                  <Link to={item.link} key={index} style={DropdownLink}>
-                    <FiberManualRecordOutlinedIcon sx={{ fontSize: "small" }} />
-                    <Typography style={SidebarLabel}>{item.title}</Typography>
-                  </Link>
-                );
-              })}
+            {item.subNav
+              ? item.subNav.map((subItem) => (
+                  <Collapse in={open[index]} sx={{display:open[index]?"block":"none"}}>
+                    <Link to={subItem.link} key={index} style={DropdownLink}>
+                      <ListItemIcon sx={{minWidth:"32px",color: pathname === subItem.link ? "#2065d1" : "#637381"}}>{subItem.icon}</ListItemIcon>
+                      <Typography style={SidebarLabel} sx={{color: pathname === subItem.link ? "#2065d1" : "#637381",}}>
+                        {subItem.title}
+                      </Typography>
+                    </Link>
+                  </Collapse>
+                ))
+              : null}
           </>
         ))}
       </List>
